@@ -4,19 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lectures Militantes</title>
+  <style>
+    :root {
+      --bg-color: #fdfdfd;
+      --text-color: #111;
+      --link-color: #003366;
+      --accent: #e63946;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #111;
+        --text-color: #eee;
+        --link-color: #8ecae6;
+        --accent: #ff6b6b;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.2em;
+    }
+
+    p.description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .list li {
+      margin-bottom: 0.8rem;
+    }
+
+    .list a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>📚 Lectures Militantes</h1>
-  <p>Bienvenue sur ce site d'archives et de formations populaires ✊</p>
 
-  <ul>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/nom-du-fichier.pdf" target="_blank">Titre du fichier 1</a></li>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/nom-du-fichier2.pdf" target="_blank">Titre du fichier 2</a></li>
-  </ul>
+  <h1>📚 Lectures Militantes</h1>
+  <p class="description">
+    Textes pour se former, penser, résister — archives militantes à lire, télécharger, transmettre ✊
+  </p>
+
+  <section>
+    <h2>💥 Marxisme</h2>
+    <ul class="list">
+      <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/marx_18brumaire.pdf" target="_blank">Marx – Le 18 Brumaire de Louis Bonaparte</a></li>
+      <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/althusser_ideologie.pdf" target="_blank">Althusser – Idéologie et appareils idéologiques d'État</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🌍 Décolonial</h2>
+    <ul class="list">
+      <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/fanon_peau_noire.pdf" target="_blank">Fanon – Peau noire, masques blancs</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🌈 Queer / Féminisme</h2>
+    <ul class="list">
+      <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/butler_genre.pdf" target="_blank">Butler – Trouble dans le genre</a></li>
+    </ul>
+  </section>
 
   <footer>
-    <p style="font-size: 0.8em; color: gray;">Site hébergé sur GitHub Pages</p>
+    Site autonome – hébergé sur GitHub Pages – textes à diffuser librement
   </footer>
+
 </body>
 </html>
+
 
