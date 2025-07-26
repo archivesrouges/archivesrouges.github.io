@@ -2,129 +2,93 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lectures Militantes</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lectures militantes</title>
   <style>
-    :root {
-      --bg: #0f0f0f;
-      --text: #f5f5f5;
-      --accent: #ffffff;
-      --link: #dddddd;
-      --link-hover: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
+      font-family: "Georgia", serif;
+      background-color: #ffffff;
+      color: #111111;
       padding: 2rem;
-      max-width: 880px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.2em;
-      color: var(--accent);
-    }
-
-    .description {
-      font-size: 1.2rem;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      border-bottom: 1px solid #444;
+    h1, h2 {
+      border-bottom: 1px solid #111;
       padding-bottom: 0.3rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
     }
-
+    a {
+      color: #111;
+      text-decoration: none;
+      border-bottom: 1px dotted #888;
+    }
+    a:hover {
+      background-color: #111;
+      color: #fff;
+      transition: 0.2s;
+    }
     ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding-left: 0;
     }
-
     li {
       margin-bottom: 0.8rem;
     }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 5rem;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
-    }
-
-    @media (max-width: 640px) {
+    @media (prefers-color-scheme: dark) {
       body {
-        padding: 1.2rem;
+        background-color: #111;
+        color: #eee;
       }
-
-      h1 {
-        font-size: 2rem;
+      a {
+        color: #eee;
+        border-bottom: 1px dotted #aaa;
       }
-
-      .description {
-        font-size: 1rem;
+      a:hover {
+        background-color: #eee;
+        color: #111;
+      }
+      h1, h2 {
+        border-color: #eee;
       }
     }
   </style>
 </head>
 <body>
+  <h1>Lectures militantes</h1>
 
-  <h1>Lectures Militantes</h1>
-  <p class="description">
-    Une bibliothèque populaire et politique en construction. À lire, partager, diffuser.
-  </p>
-
-  <h2>💥 Marxisme</h2>
+  <h2>Marx & Engels</h2>
   <ul>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/marx_18brumaire.pdf" target="_blank">Marx — Le 18 Brumaire de Louis Bonaparte</a></li>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/althusser_ideologie.pdf" target="_blank">Althusser — Idéologie et appareils idéologiques d'État</a></li>
+    <li><a href="contenu/La lutte de classes en France.pdf" target="_blank">La lutte de classes en France</a></li>
+    <li><a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">La guerre civile en France – Karl Marx (2016)</a></li>
+    <li><a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">Manifeste du Parti Communiste & Les Principes du Communisme</a></li>
   </ul>
 
-  <h2>🌍 Décolonial</h2>
+  <h2>Lénine</h2>
   <ul>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/fanon_peau_noire.pdf" target="_blank">Fanon — Peau noire, masques blancs</a></li>
+    <li><a href="contenu/Des principes du léninisme.pdf" target="_blank">Des principes du léninisme</a></li>
+    <li><a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">L'État et la Révolution – Lénine</a></li>
+    <li><a href="contenu/L'impérialisme, stade suprême du capitalisme -- Vladimir Ilitch Lénine.pdf" target="_blank">L'impérialisme, stade suprême du capitalisme – Lénine</a></li>
+    <li><a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">Le Gauchisme, maladie infantile du communisme</a></li>
   </ul>
 
-  <h2>🌈 Féminisme & Queer</h2>
+  <h2>Mao Zedong</h2>
   <ul>
-    <li><a href="https://raw.githubusercontent.com/TONPSEUDO/pdf-lectures/main/contenu/butler_genre.pdf" target="_blank">Butler — Trouble dans le genre</a></li>
+    <li><a href="contenu/Mao Zedong _ De la contradiction – 1937.pdf" target="_blank">De la contradiction – Mao Zedong (1937)</a></li>
+    <li><a href="contenu/Mao Zedong _ De la pratique – 1937.pdf" target="_blank">De la pratique – Mao Zedong (1937)</a></li>
   </ul>
 
-  <footer>
-    Site autonome – hébergé sur GitHub Pages – textes à partager librement ✊
-  </footer>
+  <h2>Contre le révisionnisme historique</h2>
+  <ul>
+    <li><a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">Stalin – The History and Critique of a Black Legend — Domenico Losurdo</a></li>
+    <li><a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">The Battle For China's Past – Mobo Gao</a></li>
+    <li><a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">The Bolsheviks Come to Power – Alexander Rabinowitch</a></li>
+  </ul>
 
 </body>
+</html>
+
 </html>
 
 
