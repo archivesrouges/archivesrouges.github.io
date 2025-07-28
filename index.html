@@ -32,6 +32,15 @@
       color: #444;
     }
 
+    input#searchInput {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
     h2 {
       font-size: clamp(1rem, 4.5vw, 1.4rem);
       font-weight: 600;
@@ -59,6 +68,13 @@
 
     li {
       margin-bottom: 1.1rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #777;
+      display: block;
+      margin-top: 0.2rem;
     }
 
     footer {
@@ -100,15 +116,26 @@
       .footer-text {
         color: #888;
       }
+
+      input#searchInput {
+        background-color: #222;
+        color: #eee;
+        border-color: #444;
+      }
+
+      .subtitle {
+        color: #aaa;
+      }
     }
   </style>
 </head>
-
 <body>
   <h1>☭ Archives Rouges</h1>
   <p class="intro">
     Bibliothèque populaire pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.
   </p>
+
+  <input type="text" id="searchInput" placeholder="Rechercher un document..." />
 
   <h2>Friedrich Engels & Karl Marx</h2>
   <ul>
@@ -120,7 +147,12 @@
     <li><a href="contenu/Critique du programme de Gotha.pdf" target="_blank">Critique du programme de Gotha - Karl Marx</a></li> 
     <li><a href="contenu/La lutte de classes en France.pdf" target="_blank">La lutte de classes en France 1848-1850 - Karl Marx</a></li>
     <li><a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">La guerre civile en France - Karl Marx</a></li>
-    <li><a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">Principes élémentaires de philosophie - Georges Politzer (Introduction au matérialisme dialectique)</a></li>
+    <li>
+      <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
+        Principes élémentaires de philosophie - Georges Politzer
+        <span class="subtitle">(Introduction au matérialisme dialectique)</span>
+      </a>
+    </li>
   </ul>
 
   <h2>Lénine</h2>
@@ -131,7 +163,7 @@
     <li><a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">Le Gauchisme, maladie infantile du communisme- Lénine</a></li>
   </ul>
 
-   <h2>Joseph Staline</h2>
+  <h2>Joseph Staline</h2>
   <ul>
     <li><a href="contenu/Des principes du léninisme.pdf" target="_blank">Des principes du léninisme - Joseph Staline</a></li>
     <li><a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">Le marxisme et la question nationale - Joseph Staline</a></li>
@@ -172,7 +204,23 @@
   <footer>
     <p class="footer-text">2025 — @redarchives</p>
   </footer>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+
+  function removeAccents(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  searchInput.addEventListener('input', function () {
+    const filter = removeAccents(this.value.toLowerCase());
+    document.querySelectorAll('ul li').forEach(li => {
+      const text = removeAccents(li.textContent.toLowerCase());
+      li.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+</script>
+
 </body>
 </html>
-
 
