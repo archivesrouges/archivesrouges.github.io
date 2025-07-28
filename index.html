@@ -36,14 +36,14 @@
     }
 
     #searchInput {
-  width: 100%;
-  padding: 0.5rem 2.2rem 0.5rem 0.5rem; 
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: 'Space Grotesk', sans-serif;
-}
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
     #searchInput::placeholder {
       font-family: 'Space Grotesk', sans-serif;
@@ -162,38 +162,6 @@
         color: #aaa;
       }
     }
-    .search-container {
-  position: relative;
-  margin-bottom: 2rem;
-}
-
-.clear-btn {
-  position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.3rem;
-  color: #aaa;
-  cursor: pointer;
-  display: none;
-  user-select: none;
-  line-height: 1;
-}
-
-.clear-btn:hover {
-  color: #333;
-}
-
-@media (prefers-color-scheme: dark) {
-  .clear-btn {
-    color: #777;
-  }
-
-  .clear-btn:hover {
-    color: #ccc;
-  }
-}
-
   </style>
 </head>
 
@@ -203,13 +171,9 @@
     Bibliothèque populaire pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.
   </p>
 
-  <div class="search-container">
   <input type="text" id="searchInput" placeholder="Rechercher un ouvrage..." />
-  <span class="clear-btn" id="clearSearch">&times;</span>
-</div>
 
-
-   <section>
+  <section>
     <h2>Friedrich Engels & Karl Marx</h2>
     <ul>
       <li><a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">Manifeste du Parti Communiste & Les Principes du Communisme - Friedrich Engels & Karl Marx</a></li>
@@ -285,44 +249,39 @@
     </ul>
   </section>
 
+  <footer>
+    <p class="footer-text">2025 — @redarchives</p>
+  </footer>
+
   <script>
-  const searchInput = document.getElementById('searchInput');
-  const clearBtn = document.getElementById('clearSearch');
+    const searchInput = document.getElementById('searchInput');
 
-  function removeAccents(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
+    function removeAccents(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
 
-  function filterList() {
-    const filter = removeAccents(searchInput.value.toLowerCase());
-    let anyInput = filter.length > 0;
-    clearBtn.style.display = anyInput ? 'block' : 'none';
+    function filterList() {
+      const filter = removeAccents(searchInput.value.toLowerCase());
 
-    document.querySelectorAll('section').forEach(section => {
-      let hasVisible = false;
-      const lis = section.querySelectorAll('li');
+      document.querySelectorAll('section').forEach(section => {
+        let hasVisible = false;
+        const lis = section.querySelectorAll('li');
 
-      lis.forEach(li => {
-        const text = removeAccents(li.textContent.toLowerCase());
-        const match = text.includes(filter);
-        li.classList.toggle('hide', !match);
-        if (match) hasVisible = true;
+        lis.forEach(li => {
+          const text = removeAccents(li.textContent.toLowerCase());
+          const match = text.includes(filter);
+          li.classList.toggle('hide', !match);
+          if (match) hasVisible = true;
+        });
+
+        section.classList.toggle('hidden', !hasVisible);
       });
+    }
 
-      section.classList.toggle('hidden', !hasVisible);
-    });
-  }
-
-  searchInput.addEventListener('input', filterList);
-
-  clearBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    filterList();
-    searchInput.focus();
-  });
-</script>
-
+    searchInput.addEventListener('input', filterList);
+  </script>
 </body>
 </html>
+
 
 
