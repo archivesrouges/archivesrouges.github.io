@@ -32,21 +32,37 @@
       color: #444;
     }
 
-    input#searchInput {
+    #searchInput {
       width: 100%;
       padding: 0.5rem;
       font-size: 1rem;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background-color: transparent;
+      color: inherit;
+      outline: none;
+      font-family: 'Space Grotesk', sans-serif;
       margin-bottom: 2rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
     }
-    
-  #searchInput::placeholder {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #aaa;
-  font-style: normal;
-  font-size: 1rem;
-  }
+
+    #searchInput::placeholder {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #aaa;
+      font-style: normal;
+      font-size: 1rem;
+    }
+
+    section {
+      transition: opacity 0.3s ease;
+    }
+
+    section.hidden {
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
 
     h2 {
       font-size: clamp(1rem, 4.5vw, 1.4rem);
@@ -75,6 +91,18 @@
 
     li {
       margin-bottom: 1.1rem;
+      opacity: 1;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    li.hide {
+      opacity: 0;
+      transform: scale(0.98);
+      pointer-events: none;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
     }
 
     .subtitle {
@@ -124,10 +152,9 @@
         color: #888;
       }
 
-      input#searchInput {
-        background-color: #222;
+      #searchInput {
+        border-bottom: 1px solid #444;
         color: #eee;
-        border-color: #444;
       }
 
       .subtitle {
@@ -136,6 +163,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>☭ Archives Rouges</h1>
   <p class="intro">
@@ -144,90 +172,108 @@
 
   <input type="text" id="searchInput" placeholder="Rechercher un ouvrage..." />
 
-  <h2>Friedrich Engels & Karl Marx</h2>
-  <ul>
-    <li><a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">Manifeste du Parti Communiste & Les Principes du Communisme - Friedrich Engels & Karl Marx</a></li>
-    <li><a href="contenu/L_idéologie-allemande.pdf" target="_blank">L'idéologie allemande - Friedrich Engels & Karl Marx</a></li>
-    <li><a href="contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">Socialisme utopique et socialisme scientifique - Friedrich Engels</a></li> 
-    <li><a href="contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">L'Origine de la famille, de la propriété privée et de l'Etat - Friedrich Engels</a></li> 
-    <li><a href="contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">Travail salarié et Capital | Salaire, Prix et Profit - Karl Marx</a></li>   
-    <li><a href="contenu/Critique du programme de Gotha.pdf" target="_blank">Critique du programme de Gotha - Karl Marx</a></li> 
-    <li><a href="contenu/La lutte de classes en France.pdf" target="_blank">La lutte de classes en France 1848-1850 - Karl Marx</a></li>
-    <li><a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">La guerre civile en France - Karl Marx</a></li>
-    <li>
-      <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
-        Principes élémentaires de philosophie - Georges Politzer
-        <span class="subtitle">(Introduction au matérialisme dialectique)</span>
-      </a>
-    </li>
-  </ul>
+   <section>
+    <h2>Friedrich Engels & Karl Marx</h2>
+    <ul>
+      <li><a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">Manifeste du Parti Communiste & Les Principes du Communisme - Friedrich Engels & Karl Marx</a></li>
+      <li><a href="contenu/L_idéologie-allemande.pdf" target="_blank">L'idéologie allemande - Friedrich Engels & Karl Marx</a></li>
+      <li><a href="contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">Socialisme utopique et socialisme scientifique - Friedrich Engels</a></li> 
+      <li><a href="contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">L'Origine de la famille, de la propriété privée et de l'Etat - Friedrich Engels</a></li> 
+      <li><a href="contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">Travail salarié et Capital | Salaire, Prix et Profit - Karl Marx</a></li>   
+      <li><a href="contenu/Critique du programme de Gotha.pdf" target="_blank">Critique du programme de Gotha - Karl Marx</a></li> 
+      <li><a href="contenu/La lutte de classes en France.pdf" target="_blank">La lutte de classes en France 1848-1850 - Karl Marx</a></li>
+      <li><a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">La guerre civile en France - Karl Marx</a></li>
+      <li>
+        <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
+          Principes élémentaires de philosophie - Georges Politzer
+          <span class="subtitle">(Introduction au matérialisme dialectique)</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-  <h2>Lénine</h2>
-  <ul>
-    <li><a href="contenu/Que faire.pdf" target="_blank">Que faire ? - Lénine</a></li>
-    <li><a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">L'État et la Révolution - Lénine</a></li>
-    <li><a href="contenu/L'impérialisme, stade suprême du capitalisme -- Vladimir Ilitch Lénine.pdf" target="_blank">L'impérialisme, stade suprême du capitalisme- Lénine</a></li>
-    <li><a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">Le Gauchisme, maladie infantile du communisme- Lénine</a></li>
-  </ul>
+  <section>
+    <h2>Lénine</h2>
+    <ul>
+      <li><a href="contenu/Que faire.pdf" target="_blank">Que faire ? - Lénine</a></li>
+      <li><a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">L'État et la Révolution - Lénine</a></li>
+      <li><a href="contenu/L'impérialisme, stade suprême du capitalisme -- Vladimir Ilitch Lénine.pdf" target="_blank">L'impérialisme, stade suprême du capitalisme - Lénine</a></li>
+      <li><a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">Le Gauchisme, maladie infantile du communisme - Lénine</a></li>
+    </ul>
+  </section>
 
-  <h2>Joseph Staline</h2>
-  <ul>
-    <li><a href="contenu/Des principes du léninisme.pdf" target="_blank">Des principes du léninisme - Joseph Staline</a></li>
-    <li><a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">Le marxisme et la question nationale - Joseph Staline</a></li>
-    <li><a href="contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">Le matérialisme dialectique et le matérialisme historique - Joseph Staline</a></li>
-    <li><a href="contenu/Anarchisme ou socialisme.pdf" target="_blank">Anarchisme ou socialisme ? - Joseph Staline</a></li>
-    <li><a href="contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">Les problèmes économiques du socialisme en URSS - Joseph Staline</a></li>
-  </ul>
+  <section>
+    <h2>Joseph Staline</h2>
+    <ul>
+      <li><a href="contenu/Des principes du léninisme.pdf" target="_blank">Des principes du léninisme - Joseph Staline</a></li>
+      <li><a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">Le marxisme et la question nationale - Joseph Staline</a></li>
+      <li><a href="contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">Le matérialisme dialectique et le matérialisme historique - Joseph Staline</a></li>
+      <li><a href="contenu/Anarchisme ou socialisme.pdf" target="_blank">Anarchisme ou socialisme ? - Joseph Staline</a></li>
+      <li><a href="contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">Les problèmes économiques du socialisme en URSS - Joseph Staline</a></li>
+    </ul>
+  </section>
 
-  <h2>Mao Zedong</h2>
-  <ul>
-    <li><a href="contenu/Mao Zedong _ De la pratique − 1937.pdf" target="_blank">De la pratique - Mao Zedong</a></li>
-    <li><a href="contenu/Mao Zedong _ De la contradiction − 1937.pdf" target="_blank">De la contradiction - Mao Zedong</a></li>
-    <li><a href="contenu/Cinq essais philosophiques.pdf" target="_blank">Cinq essais philosophiques - Mao Zedong</a></li>
-    <li><a href="contenu/Analyse des classes de la société chinoise.pdf" target="_blank">Analyse des classes de la société chinoise - Mao Zedong</a></li>
-    <li><a href="contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">Problèmes de la guerre et de la stratégie - Mao Zedong</a></li>
-    <li><a href="contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">De la juste solution des contradictions au sein du peuple - Mao Zedong</a></li>
-  </ul>
+  <section>
+    <h2>Mao Zedong</h2>
+    <ul>
+      <li><a href="contenu/Mao Zedong _ De la pratique − 1937.pdf" target="_blank">De la pratique - Mao Zedong</a></li>
+      <li><a href="contenu/Mao Zedong _ De la contradiction − 1937.pdf" target="_blank">De la contradiction - Mao Zedong</a></li>
+      <li><a href="contenu/Cinq essais philosophiques.pdf" target="_blank">Cinq essais philosophiques - Mao Zedong</a></li>
+      <li><a href="contenu/Analyse des classes de la société chinoise.pdf" target="_blank">Analyse des classes de la société chinoise - Mao Zedong</a></li>
+      <li><a href="contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">Problèmes de la guerre et de la stratégie - Mao Zedong</a></li>
+      <li><a href="contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">De la juste solution des contradictions au sein du peuple - Mao Zedong</a></li>
+    </ul>
+  </section>
 
-  <h2>Ouvrages collectifs</h2>
-  <ul>
-    <li><a href="contenu/Cours de base de MLM.pdf" target="_blank">Cours de base de marxisme-léninisme-maoïsme — Parti communiste Indien (maoïste)</a></li>
-    <li><a href="contenu/Guerre populaire et Révolution.pdf" target="_blank">Guerre Populaire et Révolution – Parti communiste du Brésil</a></li>
-    <li><a href="contenu/Guide du militant.pdf" target="_blank">Guide du militant – Parti communiste des Philippines</a></li>
-    <li><a href="contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">Stratégie de libération pour la Palestine – Front populaire de libération de la Palestine</a></li>
-    <li><a href="contenu/Repenser le socialisme.pdf" target="_blank">Repenser le socialisme, qu'est-ce que la transition socialiste ? – Deng-Yuan Hsu & Pao-Yu Ching</a></li>
-    <li><a href="contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">Pour une analyse scientifique de la question gay – Groupe d'étude de Los Angeles</a></li>
-  </ul>
-  
-  <h2>Ouvrages historiques</h2>
-  <ul>
-    <li><a href="contenu/L'ère des extrêmes.pdf" target="_blank">L'Ère des extrêmes : Histoire du court XXe siècle (1914-1991) — Eric Hobsbawm</a></li>
-    <li><a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">Staline : Histoire et critique d’une légende noire (ENG) — Domenico Losurdo</a></li>
-    <li><a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">Bataille pour le passé de la Chine : Mao et la Révolution culturelle (ENG) – Mobo Gao</a></li>
-    <li><a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">Les Bolcheviks prennent le pouvoir : La révolution de 1917 à Petrograd (ENG) – Alexander Rabinowitch</a></li>
-    <li><a href="contenu/The Bolsheviks in Power.pdf" target="_blank">Les Bolcheviks au pouvoir : La première année du régime soviétique à Petrograd (ENG) – Alexander Rabinowitch</a></li>
-  </ul>
+  <section>
+    <h2>Ouvrages collectifs</h2>
+    <ul>
+      <li><a href="contenu/Cours de base de MLM.pdf" target="_blank">Cours de base de marxisme-léninisme-maoïsme — Parti communiste Indien (maoïste)</a></li>
+      <li><a href="contenu/Guerre populaire et Révolution.pdf" target="_blank">Guerre Populaire et Révolution – Parti communiste du Brésil</a></li>
+      <li><a href="contenu/Guide du militant.pdf" target="_blank">Guide du militant – Parti communiste des Philippines</a></li>
+      <li><a href="contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">Stratégie de libération pour la Palestine – Front populaire de libération de la Palestine</a></li>
+      <li><a href="contenu/Repenser le socialisme.pdf" target="_blank">Repenser le socialisme, qu'est-ce que la transition socialiste ? – Deng-Yuan Hsu & Pao-Yu Ching</a></li>
+      <li><a href="contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">Pour une analyse scientifique de la question gay – Groupe d'étude de Los Angeles</a></li>
+    </ul>
+  </section>
 
-  <footer>
-    <p class="footer-text">2025 — @redarchives</p>
-  </footer>
+  <section>
+    <h2>Ouvrages historiques</h2>
+    <ul>
+      <li><a href="contenu/L'ère des extrêmes.pdf" target="_blank">L'Ère des extrêmes : Histoire du court XXe siècle (1914-1991) — Eric Hobsbawm</a></li>
+      <li><a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">Staline : Histoire et critique d’une légende noire (ENG) — Domenico Losurdo</a></li>
+      <li><a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">Bataille pour le passé de la Chine : Mao et la Révolution culturelle (ENG) – Mobo Gao</a></li>
+      <li><a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">Les Bolcheviks prennent le pouvoir : La révolution de 1917 à Petrograd (ENG) – Alexander Rabinowitch</a></li>
+      <li><a href="contenu/The Bolsheviks in Power.pdf" target="_blank">Les Bolcheviks au pouvoir : La première année du régime soviétique à Petrograd (ENG) – Alexander Rabinowitch</a></li>
+    </ul>
+  </section>
 
-<script>
-  const searchInput = document.getElementById('searchInput');
+  <script>
+    const searchInput = document.getElementById('searchInput');
 
-  function removeAccents(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
+    function removeAccents(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
 
-  searchInput.addEventListener('input', function () {
-    const filter = removeAccents(this.value.toLowerCase());
-    document.querySelectorAll('ul li').forEach(li => {
-      const text = removeAccents(li.textContent.toLowerCase());
-      li.style.display = text.includes(filter) ? '' : 'none';
+    searchInput.addEventListener('input', function () {
+      const filter = removeAccents(this.value.toLowerCase());
+
+      document.querySelectorAll('section').forEach(section => {
+        let hasVisible = false;
+        const lis = section.querySelectorAll('li');
+
+        lis.forEach(li => {
+          const text = removeAccents(li.textContent.toLowerCase());
+          const match = text.includes(filter);
+          li.classList.toggle('hide', !match);
+          if (match) hasVisible = true;
+        });
+
+        section.classList.toggle('hidden', !hasVisible);
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
+
 
