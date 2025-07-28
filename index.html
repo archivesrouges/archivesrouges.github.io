@@ -36,14 +36,14 @@
     }
 
     #searchInput {
-     width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 0.5rem; 
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Space Grotesk', sans-serif;
+}
 
     #searchInput::placeholder {
       font-family: 'Space Grotesk', sans-serif;
@@ -163,35 +163,37 @@
       }
     }
     .search-container {
-      position: relative;
-      margin-bottom: 2rem;
-    }
+  position: relative;
+  margin-bottom: 2rem;
+}
 
-    .clear-btn {
-      position: absolute;
-      right: 0.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-      color: #aaa;
-      cursor: pointer;
-      display: none;
-      user-select: none;
-    }
+.clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: #aaa;
+  cursor: pointer;
+  display: none;
+  user-select: none;
+  line-height: 1;
+}
 
-    .clear-btn:hover {
-      color: #333;
-    }
+.clear-btn:hover {
+  color: #333;
+}
 
-    @media (prefers-color-scheme: dark) {
-      .clear-btn {
-        color: #777;
-      }
+@media (prefers-color-scheme: dark) {
+  .clear-btn {
+    color: #777;
+  }
 
-      .clear-btn:hover {
-        color: #ccc;
-      }
-    }
+  .clear-btn:hover {
+    color: #ccc;
+  }
+}
+
   </style>
 </head>
 
