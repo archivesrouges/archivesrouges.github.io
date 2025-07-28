@@ -162,6 +162,36 @@
         color: #aaa;
       }
     }
+    .search-container {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #aaa;
+      cursor: pointer;
+      display: none;
+      user-select: none;
+    }
+
+    .clear-btn:hover {
+      color: #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .clear-btn {
+        color: #777;
+      }
+
+      .clear-btn:hover {
+        color: #ccc;
+      }
+    }
   </style>
 </head>
 
@@ -171,7 +201,11 @@
     Bibliothèque populaire pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.
   </p>
 
+  <div class="search-container">
   <input type="text" id="searchInput" placeholder="Rechercher un ouvrage..." />
+  <span class="clear-btn" id="clearSearch">&times;</span>
+</div>
+
 
    <section>
     <h2>Friedrich Engels & Karl Marx</h2>
@@ -250,30 +284,42 @@
   </section>
 
   <script>
-    const searchInput = document.getElementById('searchInput');
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearSearch');
 
-    function removeAccents(str) {
-      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
+  function removeAccents(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
 
-    searchInput.addEventListener('input', function () {
-      const filter = removeAccents(this.value.toLowerCase());
+  function filterList() {
+    const filter = removeAccents(searchInput.value.toLowerCase());
+    let anyInput = filter.length > 0;
+    clearBtn.style.display = anyInput ? 'block' : 'none';
 
-      document.querySelectorAll('section').forEach(section => {
-        let hasVisible = false;
-        const lis = section.querySelectorAll('li');
+    document.querySelectorAll('section').forEach(section => {
+      let hasVisible = false;
+      const lis = section.querySelectorAll('li');
 
-        lis.forEach(li => {
-          const text = removeAccents(li.textContent.toLowerCase());
-          const match = text.includes(filter);
-          li.classList.toggle('hide', !match);
-          if (match) hasVisible = true;
-        });
-
-        section.classList.toggle('hidden', !hasVisible);
+      lis.forEach(li => {
+        const text = removeAccents(li.textContent.toLowerCase());
+        const match = text.includes(filter);
+        li.classList.toggle('hide', !match);
+        if (match) hasVisible = true;
       });
+
+      section.classList.toggle('hidden', !hasVisible);
     });
-  </script>
+  }
+
+  searchInput.addEventListener('input', filterList);
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterList();
+    searchInput.focus();
+  });
+</script>
+
 </body>
 </html>
 
