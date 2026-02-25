@@ -8,58 +8,155 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --red: #c0392b;
+      --red-bright: #e74c3c;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent-bg: #1a0a0a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: 'Space Grotesk', sans-serif;
-      background-color: #ffffff;
-      color: #111111;
-      padding: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    h1 {
-      font-size: clamp(1.5rem, 6vw, 2.5rem);
-      margin-bottom: 0.3rem;
-      white-space: nowrap;
+    /* ── HEADER ── */
+    header {
+      background-color: var(--bg);
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
     }
 
-    .intro {
-      margin-top: 0.2rem;
-      margin-bottom: 2.1rem;
-      font-size: 1rem;
-      color: #444;
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      color: var(--red);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    header h1 img {
+      width: clamp(20px, 3vw, 28px);
+      height: clamp(20px, 3vw, 28px);
+      object-fit: contain;
+    }
+
+    header .tagline {
+      color: #c0392b99;
+      font-size: 0.72rem;
+      margin-top: 0.4rem;
+      letter-spacing: 0.08em;
+      font-style: italic;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--muted);
+      pointer-events: none;
     }
 
     #searchInput {
       width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 0.75rem 1rem 0.75rem 2.8rem;
+      font-size: 0.95rem;
       font-family: 'Space Grotesk', sans-serif;
-      background-color: #f9f9f9;
+      background-color: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s;
     }
 
-    #searchInput::placeholder {
-      font-family: 'Space Grotesk', sans-serif;
-      color: #aaa;
-      font-style: normal;
-      font-size: 1rem;
+    #searchInput:focus {
+      border-color: var(--red-bright);
+      border-left: 3px solid var(--red-bright);
     }
-    
-    @media (prefers-color-scheme: light) {
-  #searchInput::placeholder {
-    color: #666;
-  }
-}
 
+    #searchInput::placeholder { color: #555; }
+
+    /* ── GROUP DIVIDER ── */
+    .group-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+      color: #ccc;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .group-divider::before,
+    .group-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #555;
+    }
+
+    .group-divider.hidden { display: none; }
+
+    /* ── SOUS-SÉPARATION INLINE ── */
+    .sub-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      color: #666;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sub-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #3a3a3a;
+    }
+
+    /* ── SECTIONS ── */
     section {
+      margin-bottom: 2.8rem;
       transition: opacity 0.3s ease;
     }
 
@@ -67,205 +164,412 @@
       opacity: 0;
       height: 0;
       margin: 0;
-      padding: 0;
       overflow: hidden;
     }
 
+    .section-header {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
     h2 {
-      font-size: clamp(1rem, 4.5vw, 1.4rem);
-      font-weight: 600;
-      border-bottom: 1px solid #111;
-      padding-bottom: 0.3rem;
-      margin-top: 2.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #e05545;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
 
-    a {
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px dotted #888;
-    }
-
-    a:hover {
-      background-color: #111;
-      color: #fff;
-      transition: 0.2s;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+    /* ── LISTE ── */
+    ul { list-style: none; padding: 0; }
 
     li {
-      margin-bottom: 1.1rem;
-      opacity: 1;
+      border-bottom: 1px solid var(--border);
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
+
+    li:last-child { border-bottom: none; }
 
     li.hide {
       opacity: 0;
       transform: scale(0.98);
       pointer-events: none;
       height: 0;
-      margin: 0;
-      padding: 0;
       overflow: hidden;
     }
 
-    .subtitle {
-      font-size: 0.95rem;
-      color: #777;
-      display: block;
-      margin-top: 0.2rem;
+    li a {
+      display: flex;
+      flex-direction: column;
+      padding: 0.8rem 0.5rem 0.8rem 0;
+      color: var(--text);
+      text-decoration: none;
+      transition: background-color 0.15s, padding-left 0.15s;
     }
 
+    li a:hover {
+      padding-left: 0.75rem;
+      background-color: var(--accent-bg);
+    }
+
+    li a:hover .doc-title { color: var(--red-bright); }
+
+    .doc-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.15s;
+    }
+
+    .doc-author {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 0.1rem;
+    }
+
+    .doc-note {
+      font-size: 0.78rem;
+      color: #777;
+      margin-top: 0.1rem;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
     footer {
-      margin-top: 4rem;
+      border-top: 3px solid var(--red);
+      background-color: #111;
       text-align: center;
+      padding: 2rem;
     }
 
     .footer-text {
-      font-size: 0.9rem;
-      color: #999;
-      opacity: 0.6;
-      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      color: #555;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #111;
-        color: #eee;
-      }
-
-      a {
-        color: #eee;
-        border-bottom: 1px dotted #aaa;
-      }
-
-      a:hover {
-        background-color: #eee;
-        color: #111;
-      }
-
-      h2 {
-        border-color: #eee;
-      }
-
-      .intro {
-        color: #aaa;
-      }
-
-      .footer-text {
-        color: #888;
-      }
-
-      #searchInput {
-        background-color: #222;
-        color: #eee;
-        border-color: #444;
-      }
-
-      .subtitle {
-        color: #aaa;
-      }
-      section:first-of-type h2 {
-  margin-top: 1.8rem;
-}
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+    }
   </style>
 </head>
 
 <body>
-  <h1>☭ Archives Rouges</h1>
-  <p class="intro">
-    Bibliothèque populaire pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.
-  </p>
 
-  <input type="text" id="searchInput" placeholder="Rechercher un ouvrage..." />
+  <header>
+    <h1>
+      <img src="faucillemarteau.gif" alt="☭" />
+      Archives Rouges
+    </h1>
+    <p class="tagline">Bibliothèque introductive pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.</p>
+  </header>
 
-  <section>
-    <h2>Friedrich Engels & Karl Marx</h2>
-    <ul>
-      <li><a href="contenu/Anti-Duhring.pdf" target="_blank">Anti-Dühring - Friedrich Engels</a></li>
-      <li><a href="contenu/L_idéologie-allemande.pdf" target="_blank">L'idéologie allemande - Friedrich Engels & Karl Marx</a></li>
-      <li><a href="contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">L'Origine de la famille, de la propriété privée et de l'Etat - Friedrich Engels</a></li> 
-      <li><a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">Manifeste du Parti Communiste & Les Principes du Communisme - Friedrich Engels & Karl Marx</a></li>
-      <li><a href="contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">Socialisme utopique et socialisme scientifique - Friedrich Engels</a></li> 
-      <li><a href="contenu/Critique du programme de Gotha.pdf" target="_blank">Critique du programme de Gotha - Karl Marx</a></li> 
-      <li><a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">La guerre civile en France - Karl Marx</a></li>
-      <li><a href="contenu/La lutte de classes en France.pdf" target="_blank">La lutte de classes en France 1848-1850 - Karl Marx</a></li>
-      <li><a href="contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">Travail salarié et Capital | Salaire, Prix et Profit - Karl Marx</a></li>   
-      <li><a href="contenu/abrege-du-capital.pdf" target="_blank">Abrégé du "Capital" de Karl Marx - Carlo Cafiero</a></li>
-      <li>
-        <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
-          Principes élémentaires de philosophie - Georges Politzer
-          <span class="subtitle">(Introduction au matérialisme dialectique)</span>
-        </a>
-      </li>
-    </ul>
-  </section>
+  <div class="container">
 
-  <section>
-    <h2>Lénine</h2>
-    <ul>
-      <li><a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">L'État et la Révolution - Lénine</a></li>
-      <li><a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">Le Gauchisme, maladie infantile du communisme - Lénine</a></li>
-      <li><a href="contenu/imperialisme stade supreme du capitalisme .pdf" target="_blank">L'Impérialisme, stade suprême du capitalisme - Lénine</a></li>
-      <li><a href="contenu/Que faire.pdf" target="_blank">Que faire ? - Lénine</a></li>
-    </ul>
-  </section>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Rechercher un auteur, un titre…" />
+    </div>
 
-  <section>
-    <h2>Joseph Staline</h2>
-    <ul>
-      <li><a href="contenu/Anarchisme ou socialisme.pdf" target="_blank">Anarchisme ou socialisme ? - Joseph Staline</a></li>
-      <li><a href="contenu/Des principes du léninisme.pdf" target="_blank">Des principes du léninisme - Joseph Staline</a></li>
-      <li><a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">Le marxisme et la question nationale - Joseph Staline</a></li>
-      <li><a href="contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">Le matérialisme dialectique et le matérialisme historique - Joseph Staline</a></li>
-      <li><a href="contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">Les problèmes économiques du socialisme en URSS - Joseph Staline</a></li>
-    </ul>
-  </section>
+    <div class="group-divider" data-group="fondateurs"><span>Auteurs fondateurs</span></div>
 
-  <section>
-    <h2>Mao Zedong</h2>
-    <ul>
-      <li><a href="contenu/Analyse des classes de la société chinoise.pdf" target="_blank">Analyse des classes de la société chinoise - Mao Zedong</a></li>
-      <li><a href="contenu/Cinq essais philosophiques.pdf" target="_blank">Cinq essais philosophiques - Mao Zedong</a></li>
-      <li><a href="contenu/De la pratique.pdf" target="_blank">De la pratique - Mao Zedong</a></li>
-      <li><a href="contenu/de la contradiction.pdf" target="_blank">De la contradiction - Mao Zedong</a></li>
-      <li><a href="contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">De la juste solution des contradictions au sein du peuple - Mao Zedong</a></li>
-      <li><a href="contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">Problèmes de la guerre et de la stratégie - Mao Zedong</a></li>
-    </ul>
-  </section>
+    <section data-group="fondateurs">
+      <div class="section-header"><h2>Friedrich Engels &amp; Karl Marx</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Anti-Duhring.pdf" target="_blank">
+            <span class="doc-title">Anti-Dühring</span>
+            <span class="doc-author">Friedrich Engels</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Critique du programme de Gotha.pdf" target="_blank">
+            <span class="doc-title">Critique du programme de Gotha</span>
+            <span class="doc-author">Karl Marx</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">
+            <span class="doc-title">La guerre civile en France</span>
+            <span class="doc-author">Karl Marx</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/La lutte de classes en France.pdf" target="_blank">
+            <span class="doc-title">La lutte de classes en France 1848–1850</span>
+            <span class="doc-author">Karl Marx</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/L_idéologie-allemande.pdf" target="_blank">
+            <span class="doc-title">L'idéologie allemande</span>
+            <span class="doc-author">Friedrich Engels &amp; Karl Marx</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">
+            <span class="doc-title">L'Origine de la famille, de la propriété privée et de l'État</span>
+            <span class="doc-author">Friedrich Engels</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">
+            <span class="doc-title">Manifeste du Parti Communiste &amp; Les Principes du Communisme</span>
+            <span class="doc-author">Friedrich Engels &amp; Karl Marx</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">
+            <span class="doc-title">Socialisme utopique et socialisme scientifique</span>
+            <span class="doc-author">Friedrich Engels</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">
+            <span class="doc-title">Travail salarié et Capital | Salaire, Prix et Profit</span>
+            <span class="doc-author">Karl Marx</span>
+          </a>
+        </li>
+        <li class="sub-divider-item">
+          <div class="sub-divider"><span>Vulgarisation &amp; introductions</span></div>
+        </li>
+        <li>
+          <a href="contenu/abrege-du-capital.pdf" target="_blank">
+            <span class="doc-title">Abrégé du "Capital" de Karl Marx</span>
+            <span class="doc-author">Carlo Cafiero</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
+            <span class="doc-title">Principes élémentaires de philosophie</span>
+            <span class="doc-author">Georges Politzer</span>
+            <span class="doc-note">Introduction au matérialisme dialectique</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Ouvrages collectifs</h2>
-    <ul>
-      <li><a href="contenu/Cours de base de MLM.pdf" target="_blank">Cours de base de marxisme-léninisme-maoïsme — Parti communiste Indien (maoïste)</a></li>
-      <li><a href="contenu/Guerre populaire et Révolution.pdf" target="_blank">Guerre Populaire et Révolution – Parti communiste du Brésil</a></li>
-      <li><a href="contenu/Guide du militant.pdf" target="_blank">Guide du militant – Parti communiste des Philippines</a></li>
-      <li><a href="contenu/Sur le marxisme leninisme maoisme.pdf" target="_blank">Sur le marxisme-léninisme-maoïsme – Parti communiste du Pérou</a></li>
-      <li><a href="contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">Pour une analyse scientifique de la question gay – Groupe d'étude de Los Angeles</a></li>
-      <li><a href="contenu/Repenser le socialisme.pdf" target="_blank">Repenser le socialisme, qu'est-ce que la transition socialiste ? – Deng-Yuan Hsu & Pao-Yu Ching</a></li>
-      <li><a href="contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">Stratégie de libération pour la Palestine – Front populaire de libération de la Palestine</a></li>
-    </ul>
-  </section>
+    <section data-group="fondateurs">
+      <div class="section-header"><h2>Lénine</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">
+            <span class="doc-title">Le Gauchisme, maladie infantile du communisme</span>
+            <span class="doc-author">Lénine</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">
+            <span class="doc-title">L'État et la Révolution</span>
+            <span class="doc-author">Lénine</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/imperialisme stade supreme du capitalisme .pdf" target="_blank">
+            <span class="doc-title">L'Impérialisme, stade suprême du capitalisme</span>
+            <span class="doc-author">Lénine</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Que faire.pdf" target="_blank">
+            <span class="doc-title">Que faire ?</span>
+            <span class="doc-author">Lénine</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Ouvrages historiques</h2>
-    <ul>
-      <li><a href="contenu/Clausewitz et la guerre populaire.pdf" target="_blank">Clausewitz et la guerre populaire — T. Derbent</a></li>
-      <li><a href="contenu/L'ère des extrêmes.pdf" target="_blank">L'Ère des extrêmes : Histoire du court XXe siècle (1914-1991) — Eric Hobsbawm</a></li>
-      <li><a href="contenu/Les courants philosophiques dans le mouvement feministe.pdf" target="_blank">Les courants philosophiques dans le mouvement féministe — Anuradha Ghandy</a></li>
-      <li><a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">Bataille pour le passé de la Chine : Mao et la Révolution culturelle (ENG) – Mobo Gao</a></li>
-      <li><a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">Staline : Histoire et critique d’une légende noire (ENG) — Domenico Losurdo</a></li>
-      <li><a href="contenu/The Jakarta Method.pdf" target="_blank">The Jakarta Method (ENG) – Vincent Bevins</a></li>
-      <li><a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">Les Bolcheviks prennent le pouvoir : La révolution de 1917 à Petrograd (ENG) – Alexander Rabinowitch</a></li>
-      <li><a href="contenu/The Bolsheviks in Power.pdf" target="_blank">Les Bolcheviks au pouvoir : La première année du régime soviétique à Petrograd (ENG) – Alexander Rabinowitch</a></li>
-    </ul>
-  </section>
+    <section data-group="fondateurs">
+      <div class="section-header"><h2>Joseph Staline</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Anarchisme ou socialisme.pdf" target="_blank">
+            <span class="doc-title">Anarchisme ou socialisme ?</span>
+            <span class="doc-author">Joseph Staline</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Des principes du léninisme.pdf" target="_blank">
+            <span class="doc-title">Des principes du léninisme</span>
+            <span class="doc-author">Joseph Staline</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">
+            <span class="doc-title">Le matérialisme dialectique et le matérialisme historique</span>
+            <span class="doc-author">Joseph Staline</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">
+            <span class="doc-title">Le marxisme et la question nationale</span>
+            <span class="doc-author">Joseph Staline</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">
+            <span class="doc-title">Les problèmes économiques du socialisme en URSS</span>
+            <span class="doc-author">Joseph Staline</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section data-group="fondateurs">
+      <div class="section-header"><h2>Mao Zedong</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Analyse des classes de la société chinoise.pdf" target="_blank">
+            <span class="doc-title">Analyse des classes de la société chinoise</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Cinq essais philosophiques.pdf" target="_blank">
+            <span class="doc-title">Cinq essais philosophiques</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/de la contradiction.pdf" target="_blank">
+            <span class="doc-title">De la contradiction</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">
+            <span class="doc-title">De la juste solution des contradictions au sein du peuple</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/De la pratique.pdf" target="_blank">
+            <span class="doc-title">De la pratique</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">
+            <span class="doc-title">Problèmes de la guerre et de la stratégie</span>
+            <span class="doc-author">Mao Zedong</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <div class="group-divider" data-group="complementaire"><span>Bibliothèque complémentaire</span></div>
+
+    <section data-group="complementaire">
+      <div class="section-header"><h2>Ouvrages collectifs</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Cours de base de MLM.pdf" target="_blank">
+            <span class="doc-title">Cours de base de marxisme-léninisme-maoïsme</span>
+            <span class="doc-author">Parti communiste Indien (maoïste)</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Guide du militant.pdf" target="_blank">
+            <span class="doc-title">Guide du militant</span>
+            <span class="doc-author">Parti communiste des Philippines</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Guerre populaire et Révolution.pdf" target="_blank">
+            <span class="doc-title">Guerre Populaire et Révolution</span>
+            <span class="doc-author">Parti communiste du Brésil</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">
+            <span class="doc-title">Pour une analyse scientifique de la question gay</span>
+            <span class="doc-author">Groupe d'étude de Los Angeles</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Repenser le socialisme.pdf" target="_blank">
+            <span class="doc-title">Repenser le socialisme, qu'est-ce que la transition socialiste ?</span>
+            <span class="doc-author">Deng-Yuan Hsu &amp; Pao-Yu Ching</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">
+            <span class="doc-title">Stratégie de libération pour la Palestine</span>
+            <span class="doc-author">Front populaire de libération de la Palestine</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Sur le marxisme leninisme maoisme.pdf" target="_blank">
+            <span class="doc-title">Sur le marxisme-léninisme-maoïsme</span>
+            <span class="doc-author">Parti communiste du Pérou</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section data-group="complementaire">
+      <div class="section-header"><h2>Ouvrages historiques</h2></div>
+      <ul>
+        <li>
+          <a href="contenu/Clausewitz et la guerre populaire.pdf" target="_blank">
+            <span class="doc-title">Clausewitz et la guerre populaire</span>
+            <span class="doc-author">T. Derbent</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Les courants philosophiques dans le mouvement feministe.pdf" target="_blank">
+            <span class="doc-title">Les courants philosophiques dans le mouvement féministe</span>
+            <span class="doc-author">Anuradha Ghandy</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/L'ère des extrêmes.pdf" target="_blank">
+            <span class="doc-title">L'Ère des extrêmes : Histoire du court XXe siècle (1914–1991)</span>
+            <span class="doc-author">Eric Hobsbawm</span>
+          </a>
+        </li>
+        <li class="sub-divider-item">
+          <div class="sub-divider"><span>Ouvrages en anglais</span></div>
+        </li>
+        <li>
+          <a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">
+            <span class="doc-title">Bataille pour le passé de la Chine : Mao et la Révolution culturelle</span>
+            <span class="doc-author">Mobo Gao</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">
+            <span class="doc-title">Les Bolcheviks prennent le pouvoir : La révolution de 1917 à Petrograd</span>
+            <span class="doc-author">Alexander Rabinowitch</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/The Bolsheviks in Power.pdf" target="_blank">
+            <span class="doc-title">Les Bolcheviks au pouvoir : La première année du régime soviétique à Petrograd</span>
+            <span class="doc-author">Alexander Rabinowitch</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/The Jakarta Method.pdf" target="_blank">
+            <span class="doc-title">The Jakarta Method</span>
+            <span class="doc-author">Vincent Bevins</span>
+          </a>
+        </li>
+        <li>
+          <a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">
+            <span class="doc-title">Staline : Histoire et critique d'une légende noire</span>
+            <span class="doc-author">Domenico Losurdo</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
 
   <footer>
-    <p class="footer-text">2025</p>
+    <p class="footer-text">Archives Rouges — 2026 — Accès libre</p>
   </footer>
 
   <script>
@@ -278,25 +582,28 @@
     function filterList() {
       const filter = removeAccents(searchInput.value.toLowerCase());
 
-      document.querySelectorAll('section').forEach(section => {
-        let hasVisible = false;
-        const lis = section.querySelectorAll('li');
+      document.querySelectorAll('.group-divider').forEach(divider => {
+        const group = divider.dataset.group;
+        const sections = document.querySelectorAll(`section[data-group="${group}"]`);
+        let groupHasVisible = false;
 
-        lis.forEach(li => {
-          const text = removeAccents(li.textContent.toLowerCase());
-          const match = text.includes(filter);
-          li.classList.toggle('hide', !match);
-          if (match) hasVisible = true;
+        sections.forEach(section => {
+          let sectionHasVisible = false;
+          section.querySelectorAll('li:not(.sub-divider-item)').forEach(li => {
+            const match = removeAccents(li.textContent.toLowerCase()).includes(filter);
+            li.classList.toggle('hide', !match);
+            if (match) sectionHasVisible = true;
+          });
+          section.classList.toggle('hidden', !sectionHasVisible);
+          if (sectionHasVisible) groupHasVisible = true;
         });
 
-        section.classList.toggle('hidden', !hasVisible);
+        divider.classList.toggle('hidden', !groupHasVisible);
       });
     }
 
     searchInput.addEventListener('input', filterList);
   </script>
+
 </body>
 </html>
-
-
-
