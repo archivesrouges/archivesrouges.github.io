@@ -14,8 +14,8 @@
       --bg: #0e0e0e;
       --surface: #161616;
       --border: #2a2a2a;
-      --red: #c0392b;
-      --red-bright: #e74c3c;
+      --red: #ff4b3a;
+      --red-bright: #ff6b5a;
       --text: #e8e8e8;
       --muted: #888;
       --accent-bg: #1a0a0a;
@@ -57,7 +57,7 @@
     }
 
     header .tagline {
-      color: #c0392b99;
+      color: #ff4b3a99;
       font-size: 0.72rem;
       margin-top: 0.4rem;
       letter-spacing: 0.08em;
@@ -96,7 +96,6 @@
       background-color: var(--surface);
       color: var(--text);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
       border-radius: 0;
       outline: none;
       transition: border-color 0.2s;
@@ -104,7 +103,6 @@
 
     #searchInput:focus {
       border-color: var(--red-bright);
-      border-left: 3px solid var(--red-bright);
     }
 
     #searchInput::placeholder { color: #555; }
@@ -136,6 +134,7 @@
     .sub-divider {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.8rem;
       padding: 0.6rem 0;
       color: #666;
@@ -146,9 +145,10 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .sub-divider::before,
     .sub-divider::after {
       content: "";
-      flex: 1;
+      width: 34px;
       height: 1px;
       background-color: #3a3a3a;
     }
@@ -236,7 +236,6 @@
 
     /* ── FOOTER ── */
     footer {
-      border-top: 3px solid var(--red);
       background-color: #111;
       text-align: center;
       padding: 2rem;
@@ -244,9 +243,8 @@
 
     .footer-text {
       font-size: 0.8rem;
-      color: #555;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: #777;
+      letter-spacing: 0.04em;
     }
 
     /* ── RESPONSIVE ── */
@@ -272,7 +270,8 @@
       <input type="text" id="searchInput" placeholder="Rechercher un auteur, un titre…" />
     </div>
 
-    <div class="group-divider" data-group="fondateurs"><span>Auteurs fondateurs</span></div>
+    <!-- Bibliothèque fondatrice -->
+    <div class="group-divider" data-group="fondateurs"><span>Bibliothèque fondatrice</span></div>
 
     <section data-group="fondateurs">
       <div class="section-header"><h2>Friedrich Engels &amp; Karl Marx</h2></div>
@@ -458,9 +457,8 @@
       </ul>
     </section>
 
-    <div class="group-divider" data-group="complementaire"><span>Bibliothèque complémentaire</span></div>
-
-    <section data-group="complementaire">
+    <!-- Ouvrages collectifs intégrés dans la bibliothèque fondatrice -->
+    <section data-group="fondateurs">
       <div class="section-header"><h2>Ouvrages collectifs</h2></div>
       <ul>
         <li>
@@ -507,6 +505,9 @@
         </li>
       </ul>
     </section>
+
+    <!-- Bibliothèque complémentaire -->
+    <div class="group-divider" data-group="complementaire"><span>Bibliothèque complémentaire</span></div>
 
     <section data-group="complementaire">
       <div class="section-header"><h2>Ouvrages historiques</h2></div>
