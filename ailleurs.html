@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archives Rouges — Ailleurs</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --red: #ff2f2f;
+      --red-bright: #ff5050;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent-bg: #1a0505;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background-color: var(--bg);
+      padding: 2.2rem 2rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 5vw, 2.3rem);
+      color: var(--red);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    header h1 img {
+      width: clamp(20px, 3vw, 28px);
+      height: clamp(20px, 3vw, 28px);
+      object-fit: contain;
+    }
+
+    header .tagline {
+      color: var(--red-bright);
+      opacity: 0.6;
+      font-size: 0.75rem;
+      margin-top: 0.45rem;
+      letter-spacing: 0.08em;
+      font-style: italic;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.2rem;
+      padding: 1.4rem 0 1.2rem;
+    }
+
+    nav a {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.25rem 0.85rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    nav a.active {
+      color: var(--red);
+      border-bottom: 2px solid var(--red);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* ── GROUP DIVIDER ── */
+    .group-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+      color: #ccc;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .group-divider:first-child { margin-top: 0; }
+
+    .group-divider::before,
+    .group-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #555;
+    }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 2.8rem; }
+
+    .section-header {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--red-bright);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── LISTE ── */
+    ul { list-style: none; padding: 0; }
+
+    li { border-bottom: 1px solid var(--border); }
+    li:last-child { border-bottom: none; }
+
+    /* ── ENTRÉE FILM ── */
+    li a {
+      display: flex;
+      flex-direction: column;
+      padding: 0.8rem 0.5rem 0.8rem 0;
+      color: var(--text);
+      text-decoration: none;
+      transition: background-color 0.15s, padding-left 0.15s;
+    }
+
+    li a:hover {
+      padding-left: 0.75rem;
+      background-color: var(--accent-bg);
+    }
+
+    li a:hover .doc-title { color: var(--red-bright); }
+
+    .doc-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.15s;
+    }
+
+    .doc-author {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 0.1rem;
+    }
+
+    /* ── TAGS ── */
+    .doc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+      border: 1px solid #ff505044;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0;
+      background-color: #ff505011;
+    }
+
+    /* ── ENTRÉE YOUTUBE (sans auteur, lien direct) ── */
+    .yt-item a {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .yt-arrow {
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .yt-item a:hover .yt-arrow { color: var(--red-bright); }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <img src="faucillemarteau.gif" alt="☭" />
+      Archives Rouges
+    </h1>
+    <p class="tagline">Bibliothèque introductive pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.</p>
+    <nav>
+      <a href="index.html">Ouvrages</a>
+      <a href="ailleurs.html" class="active">Ailleurs</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- ── FILMS ── -->
+    <div class="group-divider"><span>Films</span></div>
+
+    <section>
+      <ul>
+        <li>
+          <a href="https://www.allocine.fr" target="_blank">
+            <span class="doc-title">Titre du film</span>
+            <span class="doc-author">Réalisateur·rice</span>
+            <span class="doc-tags">
+              <span class="tag">Documentaire</span>
+              <span class="tag">URSS</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.allocine.fr" target="_blank">
+            <span class="doc-title">Titre du film</span>
+            <span class="doc-author">Réalisateur·rice</span>
+            <span class="doc-tags">
+              <span class="tag">Fiction</span>
+              <span class="tag">Lutte des classes</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.allocine.fr" target="_blank">
+            <span class="doc-title">Titre du film</span>
+            <span class="doc-author">Réalisateur·rice</span>
+            <span class="doc-tags">
+              <span class="tag">Propagande soviétique</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── PODCASTS ── -->
+    <div class="group-divider"><span>Podcasts</span></div>
+
+    <section>
+      <ul>
+        <li>
+          <a href="#" target="_blank">
+            <span class="doc-title">Nom du podcast</span>
+            <span class="doc-author">Auteur·rice / Collectif</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <span class="doc-title">Nom du podcast</span>
+            <span class="doc-author">Auteur·rice / Collectif</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <span class="doc-title">Nom du podcast</span>
+            <span class="doc-author">Auteur·rice / Collectif</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── YOUTUBE ── -->
+    <div class="group-divider"><span>YouTube</span></div>
+
+    <section>
+      <ul>
+        <li class="yt-item">
+          <a href="https://youtube.com" target="_blank">
+            <span class="doc-title">Nom de la chaîne</span>
+            <span class="yt-arrow">↗</span>
+          </a>
+        </li>
+        <li class="yt-item">
+          <a href="https://youtube.com" target="_blank">
+            <span class="doc-title">Nom de la chaîne</span>
+            <span class="yt-arrow">↗</span>
+          </a>
+        </li>
+        <li class="yt-item">
+          <a href="https://youtube.com" target="_blank">
+            <span class="doc-title">Nom de la chaîne</span>
+            <span class="yt-arrow">↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p class="footer-text">Archives Rouges — 2026 — Pour une éducation populaire libre</p>
+  </footer>
+
+</body>
+</html>
