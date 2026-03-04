@@ -31,7 +31,6 @@
       line-height: 1.7;
     }
 
-    /* ── HEADER ── */
     header {
       background-color: var(--bg);
       padding: 2.2rem 2rem 0;
@@ -66,7 +65,6 @@
       font-style: italic;
     }
 
-    /* ── NAV ── */
     nav {
       display: flex;
       justify-content: center;
@@ -93,14 +91,12 @@
       border-bottom: 2px solid var(--red);
     }
 
-    /* ── LAYOUT ── */
     .container {
       max-width: 860px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
 
-    /* ── SEARCH ── */
     .search-wrap {
       position: relative;
       margin-bottom: 3rem;
@@ -133,7 +129,6 @@
     #searchInput:focus { border-color: var(--red); }
     #searchInput::placeholder { color: #555; }
 
-    /* ── GROUP DIVIDER ── */
     .group-divider {
       display: flex;
       align-items: center;
@@ -156,7 +151,6 @@
 
     .group-divider.hidden { display: none; }
 
-    /* ── SOUS-SÉPARATION INLINE ── */
     .sub-divider {
       display: flex;
       align-items: center;
@@ -170,7 +164,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── SECTIONS ── */
     section {
       margin-bottom: 2.8rem;
       transition: opacity 0.3s ease;
@@ -198,7 +191,6 @@
       text-transform: uppercase;
     }
 
-    /* ── LISTE ── */
     ul { list-style: none; padding: 0; }
 
     li {
@@ -251,7 +243,29 @@
       font-style: italic;
     }
 
-    /* ── FOOTER ── */
+    .lang {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-left: 0.4rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid #55555566;
+      padding: 0.1rem 0.45rem;
+      background-color: #55555511;
+    }
+
+    .intro-text {
+      color: var(--text);
+      opacity: 0.8;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 1.2rem auto 0;
+      padding: 0 1rem;
+      line-height: 1.5;
+      max-width: 680px;
+    }
+
     footer {
       background-color: #111;
       text-align: center;
@@ -267,31 +281,6 @@
     @media (max-width: 600px) {
       .container { padding: 1.5rem 1rem; }
     }
-
-    .lang {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-left: 0.4rem;
-  text-transform: uppercase;
-  color: var(--muted);
-  border: 1px solid #55555566;
-  padding: 0.1rem 0.45rem;
-  background-color: #55555511;
-}
-
-  .intro-text {
-  color: var(--text);
-  opacity: 0.8;
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: 1.2rem 2rem 0;
-  padding: 0 1rem;
-  line-height: 1.5;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
   </style>
 </head>
 
@@ -299,15 +288,15 @@
 
   <header>
     <h1>
-      <img src="faucillemarteau.gif" alt="☭" />
+      <img src="../faucillemarteau.gif" alt="☭" />
       Archives Rouges
     </h1>
     <p class="tagline">Médiathèque introductive pour se former sur le communisme, spécifiquement marxiste-léniniste-maoïste.</p>
     <nav>
-      <a href="index.html" class="active">Ici</a>
-      <a href="ailleurs.html">Ailleurs</a>
-      </nav>
-      <p class="intro-text">Ici, retrouvez un ensemble d'ouvrages essentiels à votre formation théorique.</p>
+      <a href="/ici" class="active">Ici</a>
+      <a href="/ailleurs">Ailleurs</a>
+    </nav>
+    <p class="intro-text">Ici, retrouvez un ensemble d'ouvrages essentiels à votre formation théorique.</p>
   </header>
 
   <div class="container">
@@ -322,55 +311,55 @@
       <div class="section-header"><h2>Friedrich Engels &amp; Karl Marx</h2></div>
       <ul>
         <li>
-          <a href="contenu/Anti-Duhring.pdf" target="_blank">
+          <a href="../contenu/Anti-Duhring.pdf" target="_blank">
             <span class="doc-title">Anti-Dühring</span>
             <span class="doc-author">Friedrich Engels</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Critique du programme de Gotha.pdf" target="_blank">
+          <a href="../contenu/Critique du programme de Gotha.pdf" target="_blank">
             <span class="doc-title">Critique du programme de Gotha</span>
             <span class="doc-author">Karl Marx</span>
           </a>
         </li>
         <li>
-          <a href="contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">
+          <a href="../contenu/La-guerre-civile-en-France-Karl-Marx-2016.pdf" target="_blank">
             <span class="doc-title">La guerre civile en France</span>
             <span class="doc-author">Karl Marx</span>
           </a>
         </li>
         <li>
-          <a href="contenu/La lutte de classes en France.pdf" target="_blank">
+          <a href="../contenu/La lutte de classes en France.pdf" target="_blank">
             <span class="doc-title">La lutte de classes en France 1848–1850</span>
             <span class="doc-author">Karl Marx</span>
           </a>
         </li>
         <li>
-          <a href="contenu/L_idéologie-allemande.pdf" target="_blank">
+          <a href="../contenu/L_idéologie-allemande.pdf" target="_blank">
             <span class="doc-title">L'idéologie allemande</span>
             <span class="doc-author">Friedrich Engels &amp; Karl Marx</span>
           </a>
         </li>
         <li>
-          <a href="contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">
+          <a href="../contenu/L'Origine de la famille, de la propriété privée et de l'Etat.pdf" target="_blank">
             <span class="doc-title">L'Origine de la famille, de la propriété privée et de l'État</span>
             <span class="doc-author">Friedrich Engels</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">
+          <a href="../contenu/Manifeste du Parti Communiste & Les Principes du Communisme.pdf" target="_blank">
             <span class="doc-title">Manifeste du Parti Communiste &amp; Les Principes du Communisme</span>
             <span class="doc-author">Friedrich Engels &amp; Karl Marx</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">
+          <a href="../contenu/Socialisme utopique et socialisme scientifique.pdf" target="_blank">
             <span class="doc-title">Socialisme utopique et socialisme scientifique</span>
             <span class="doc-author">Friedrich Engels</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">
+          <a href="../contenu/Travail Salarié Capital et Salaire Prix Profit.pdf" target="_blank">
             <span class="doc-title">Travail salarié et Capital | Salaire, Prix et Profit</span>
             <span class="doc-author">Karl Marx</span>
           </a>
@@ -379,13 +368,13 @@
           <div class="sub-divider"><span>Vulgarisation &amp; introduction</span></div>
         </li>
         <li>
-          <a href="contenu/abrege-du-capital.pdf" target="_blank">
+          <a href="../contenu/abrege-du-capital.pdf" target="_blank">
             <span class="doc-title">Abrégé du "Capital" de Karl Marx</span>
             <span class="doc-author">Carlo Cafiero</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Principes élémentaires de philosophie.pdf" target="_blank">
+          <a href="../contenu/Principes élémentaires de philosophie.pdf" target="_blank">
             <span class="doc-title">Principes élémentaires de philosophie</span>
             <span class="doc-author">Georges Politzer</span>
             <span class="doc-note">Introduction au matérialisme dialectique</span>
@@ -398,25 +387,25 @@
       <div class="section-header"><h2>Lénine</h2></div>
       <ul>
         <li>
-          <a href="contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">
+          <a href="../contenu/Le Gauchisme la maladie infantile du communisme.pdf" target="_blank">
             <span class="doc-title">Le Gauchisme, maladie infantile du communisme</span>
             <span class="doc-author">Lénine</span>
           </a>
         </li>
         <li>
-          <a href="contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">
+          <a href="../contenu/L'Etat et la Révolution - Lénine.pdf" target="_blank">
             <span class="doc-title">L'État et la Révolution</span>
             <span class="doc-author">Lénine</span>
           </a>
         </li>
         <li>
-          <a href="contenu/imperialisme stade supreme du capitalisme .pdf" target="_blank">
+          <a href="../contenu/imperialisme stade supreme du capitalisme .pdf" target="_blank">
             <span class="doc-title">L'Impérialisme, stade suprême du capitalisme</span>
             <span class="doc-author">Lénine</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Que faire.pdf" target="_blank">
+          <a href="../contenu/Que faire.pdf" target="_blank">
             <span class="doc-title">Que faire ?</span>
             <span class="doc-author">Lénine</span>
           </a>
@@ -428,31 +417,31 @@
       <div class="section-header"><h2>Joseph Staline</h2></div>
       <ul>
         <li>
-          <a href="contenu/Anarchisme ou socialisme.pdf" target="_blank">
+          <a href="../contenu/Anarchisme ou socialisme.pdf" target="_blank">
             <span class="doc-title">Anarchisme ou socialisme ?</span>
             <span class="doc-author">Joseph Staline</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Des principes du léninisme.pdf" target="_blank">
+          <a href="../contenu/Des principes du léninisme.pdf" target="_blank">
             <span class="doc-title">Des principes du léninisme</span>
             <span class="doc-author">Joseph Staline</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">
+          <a href="../contenu/Le matérialisme dialectique et le matérialisme historique.pdf" target="_blank">
             <span class="doc-title">Le matérialisme dialectique et le matérialisme historique</span>
             <span class="doc-author">Joseph Staline</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Le marxisme et la question nationale.pdf" target="_blank">
+          <a href="../contenu/Le marxisme et la question nationale.pdf" target="_blank">
             <span class="doc-title">Le marxisme et la question nationale</span>
             <span class="doc-author">Joseph Staline</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">
+          <a href="../contenu/Les problèmes économiques du socialisme en URSS.pdf" target="_blank">
             <span class="doc-title">Les problèmes économiques du socialisme en URSS</span>
             <span class="doc-author">Joseph Staline</span>
           </a>
@@ -464,37 +453,37 @@
       <div class="section-header"><h2>Mao Zedong</h2></div>
       <ul>
         <li>
-          <a href="contenu/Analyse des classes de la société chinoise.pdf" target="_blank">
+          <a href="../contenu/Analyse des classes de la société chinoise.pdf" target="_blank">
             <span class="doc-title">Analyse des classes de la société chinoise</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Cinq essais philosophiques.pdf" target="_blank">
+          <a href="../contenu/Cinq essais philosophiques.pdf" target="_blank">
             <span class="doc-title">Cinq essais philosophiques</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
         </li>
         <li>
-          <a href="contenu/de la contradiction.pdf" target="_blank">
+          <a href="../contenu/de la contradiction.pdf" target="_blank">
             <span class="doc-title">De la contradiction</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
         </li>
         <li>
-          <a href="contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">
+          <a href="../contenu/De la juste solution des contradictions au sein du peuple.pdf" target="_blank">
             <span class="doc-title">De la juste solution des contradictions au sein du peuple</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
         </li>
         <li>
-          <a href="contenu/De la pratique.pdf" target="_blank">
+          <a href="../contenu/De la pratique.pdf" target="_blank">
             <span class="doc-title">De la pratique</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">
+          <a href="../contenu/Problèmes de la guerre et de la stratégie.pdf" target="_blank">
             <span class="doc-title">Problèmes de la guerre et de la stratégie</span>
             <span class="doc-author">Mao Zedong</span>
           </a>
@@ -506,49 +495,49 @@
       <div class="section-header"><h2>Ouvrages collectifs</h2></div>
       <ul>
         <li>
-          <a href="contenu/Cours de base de MLM.pdf" target="_blank">
+          <a href="../contenu/Cours de base de MLM.pdf" target="_blank">
             <span class="doc-title">Cours de base de marxisme-léninisme-maoïsme</span>
             <span class="doc-author">Parti communiste Indien (maoïste)</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Guide du militant.pdf" target="_blank">
+          <a href="../contenu/Guide du militant.pdf" target="_blank">
             <span class="doc-title">Guide du militant</span>
             <span class="doc-author">Parti communiste des Philippines</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Guerre populaire et Révolution.pdf" target="_blank">
+          <a href="../contenu/Guerre populaire et Révolution.pdf" target="_blank">
             <span class="doc-title">Guerre populaire et révolution</span>
             <span class="doc-author">Parti communiste du Brésil</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Bataille_pour_lHistoire.pdf" target="_blank">
+          <a href="../contenu/Bataille_pour_lHistoire.pdf" target="_blank">
             <span class="doc-title">La bataille pour l'histoire</span>
             <span class="doc-author">Unité communiste</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">
+          <a href="../contenu/Pour une analyse scientifique de la question gay.pdf" target="_blank">
             <span class="doc-title">Pour une analyse scientifique de la question gay</span>
             <span class="doc-author">Groupe d'étude de Los Angeles</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Repenser le socialisme.pdf" target="_blank">
+          <a href="../contenu/Repenser le socialisme.pdf" target="_blank">
             <span class="doc-title">Repenser le socialisme, qu'est-ce que la transition socialiste ?</span>
             <span class="doc-author">Deng-Yuan Hsu &amp; Pao-Yu Ching</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">
+          <a href="../contenu/Stratégie pour la libération de la Palestine.pdf" target="_blank">
             <span class="doc-title">Stratégie de libération pour la Palestine</span>
             <span class="doc-author">Front populaire de libération de la Palestine</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Sur le marxisme leninisme maoisme.pdf" target="_blank">
+          <a href="../contenu/Sur le marxisme leninisme maoisme.pdf" target="_blank">
             <span class="doc-title">Sur le marxisme-léninisme-maoïsme</span>
             <span class="doc-author">Parti communiste du Pérou</span>
           </a>
@@ -562,91 +551,91 @@
       <div class="section-header"><h2>Histoire</h2></div>
       <ul>
         <li>
-          <a href="contenu/Clausewitz et la guerre populaire.pdf" target="_blank">
+          <a href="../contenu/Clausewitz et la guerre populaire.pdf" target="_blank">
             <span class="doc-title">Clausewitz et la guerre populaire</span>
             <span class="doc-author">T. Derbent</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Les courants philosophiques dans le mouvement feministe.pdf" target="_blank">
+          <a href="../contenu/Les courants philosophiques dans le mouvement feministe.pdf" target="_blank">
             <span class="doc-title">Les courants philosophiques dans le mouvement féministe</span>
             <span class="doc-author">Anuradha Ghandy</span>
           </a>
         </li>
         <li>
-          <a href="contenu/L'ère des extrêmes.pdf" target="_blank">
+          <a href="../contenu/L'ère des extrêmes.pdf" target="_blank">
             <span class="doc-title">L'Ère des extrêmes : Histoire du court XXe siècle (1914–1991)</span>
             <span class="doc-author">Eric Hobsbawm</span>
           </a>
         </li>
-          <li>
-          <a href="contenu/Collapse The Fall Of The Soviet Union.pdf" target="_blank">
+        <li>
+          <a href="../contenu/Collapse The Fall Of The Soviet Union.pdf" target="_blank">
             <span class="doc-title">Collapse: The Fall of the Soviet Union <span class="lang">EN</span></span>
             <span class="doc-author">Vladislav Zubok</span>
           </a>
         </li>
-          <li>
-          <a href="contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">
-            <span class="doc-title">The Battle for China’s Past: Mao and the Cultural Revolution <span class="lang">EN</span></span>
+        <li>
+          <a href="../contenu/The Battle For China's Past - Mobo Gao.pdf" target="_blank">
+            <span class="doc-title">The Battle for China's Past: Mao and the Cultural Revolution <span class="lang">EN</span></span>
             <span class="doc-author">Mobo Gao</span>
           </a>
         </li>
         <li>
-          <a href="contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">
+          <a href="../contenu/The Bolsheviks come to power - Alexander Rabinowitch.pdf" target="_blank">
             <span class="doc-title">The Bolsheviks Come to Power: The Revolution of 1917 in Petrograd <span class="lang">EN</span></span>
             <span class="doc-author">Alexander Rabinowitch</span>
           </a>
         </li>
         <li>
-          <a href="contenu/The Bolsheviks in Power.pdf" target="_blank">
-            <span class="doc-title">The Bolsheviks in Power: The First Year of Soviet Rule in Petrograd  <span class="lang">EN</span></span>
+          <a href="../contenu/The Bolsheviks in Power.pdf" target="_blank">
+            <span class="doc-title">The Bolsheviks in Power: The First Year of Soviet Rule in Petrograd <span class="lang">EN</span></span>
             <span class="doc-author">Alexander Rabinowitch</span>
           </a>
         </li>
         <li>
-          <a href="contenu/The Jakarta Method.pdf" target="_blank">
+          <a href="../contenu/The Jakarta Method.pdf" target="_blank">
             <span class="doc-title">The Jakarta Method <span class="lang">EN</span></span>
             <span class="doc-author">Vincent Bevins</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">
+          <a href="../contenu/Stalin_ The History and Critique of a Black Legend -- Domenico Losurdo.pdf" target="_blank">
             <span class="doc-title">Stalin: History and Critique of a Black Legend <span class="lang">EN</span></span>
             <span class="doc-author">Domenico Losurdo</span>
           </a>
         </li>
       </ul>
-      </section>
-    
-      <section data-group="complementaire">
-       <div class="section-header"><h2>Racisme & Colonialisme</h2></div>
+    </section>
+
+    <section data-group="complementaire">
+      <div class="section-header"><h2>Racisme &amp; Colonialisme</h2></div>
       <ul>
         <li>
-          <a href="contenu/Et Europe sous developpa Afrique.pdf" target="_blank">
+          <a href="../contenu/Et Europe sous developpa Afrique.pdf" target="_blank">
             <span class="doc-title">Et l'Europe sous-développa l'Afrique</span>
             <span class="doc-author">Walter Rodney</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Histoire des revoltes panafricaines.pdf" target="_blank">
+          <a href="../contenu/Histoire des revoltes panafricaines.pdf" target="_blank">
             <span class="doc-title">Histoire des révoltes panafricaines</span>
             <span class="doc-author">C.L.R James</span>
           </a>
         </li>
-         <li>
-          <a href="contenu/Le Contrat Racial.pdf" target="_blank">
+        <li>
+          <a href="../contenu/Le Contrat Racial.pdf" target="_blank">
             <span class="doc-title">Le Contrat racial</span>
             <span class="doc-author">Charles W. Mills</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Peau Noire Masques Blancs.pdf" target="_blank">
+          <a href="../contenu/Peau Noire Masques Blancs.pdf" target="_blank">
             <span class="doc-title">Peau noire, Masques blancs</span>
             <span class="doc-author">Frantz Fanon</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Race, ethnicité, nation_ Le Triangle fatal.pdf" target="_blank">
+          <a href="../contenu/Race, ethnicité, nation_ Le Triangle fatal.pdf" target="_blank">
             <span class="doc-title">Race, ethnicité, nation : Le triangle fatal</span>
             <span class="doc-author">Stuart Hall</span>
           </a>
@@ -655,28 +644,28 @@
     </section>
 
     <section data-group="complementaire">
-       <div class="section-header"><h2>Économie</h2></div>
+      <div class="section-header"><h2>Économie</h2></div>
       <ul>
         <li>
-          <a href="contenu/Chine-États-Unis-le-capitalisme-contre-la-mondialisation.pdf" target="_blank">
+          <a href="../contenu/Chine-États-Unis-le-capitalisme-contre-la-mondialisation.pdf" target="_blank">
             <span class="doc-title">Chine/États-Unis, le capitalisme contre la mondialisation</span>
             <span class="doc-author">Benjamin Bürbaumer</span>
           </a>
         </li>
         <li>
-          <a href="contenu/Accumulation a echelle mondiale.pdf" target="_blank">
+          <a href="../contenu/Accumulation a echelle mondiale.pdf" target="_blank">
             <span class="doc-title">L'accumulation à l'échelle mondiale</span>
             <span class="doc-author">Samir Amin</span>
           </a>
         </li>
-         <li>
-          <a href="contenu/La-monnaie-Un-enjeu-politique.pdf" target="_blank">
+        <li>
+          <a href="../contenu/La-monnaie-Un-enjeu-politique.pdf" target="_blank">
             <span class="doc-title">La monnaie : un enjeu politique</span>
             <span class="doc-author">Les Économistes atterrés</span>
           </a>
         </li>
         <li>
-          <a href="contenu/L’économie post-keynésienne.pdf" target="_blank">
+          <a href="../contenu/L'économie post-keynésienne.pdf" target="_blank">
             <span class="doc-title">L'économie post-keynésienne</span>
             <span class="doc-author">Marc Lavoie, Virginie Monvoisin, Jean-François Ponsot</span>
           </a>
