@@ -680,34 +680,53 @@
   </footer>
 
   <script>
-    const searchInput = document.getElementById('searchInput');
+  const searchInput = document.getElementById('searchInput');
 
-    function removeAccents(str) {
-      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
+  function removeAccents(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
 
-    function filterList() {
-      const filter = removeAccents(searchInput.value.toLowerCase());
-      document.querySelectorAll('.group-divider').forEach(divider => {
-        const group = divider.dataset.group;
-        const sections = document.querySelectorAll(`section[data-group="${group}"]`);
-        let groupHasVisible = false;
-        sections.forEach(section => {
-          let sectionHasVisible = false;
-          section.querySelectorAll('li:not(.sub-divider-item)').forEach(li => {
-            const match = removeAccents(li.textContent.toLowerCase()).includes(filter);
-            li.classList.toggle('hide', !match);
-            if (match) sectionHasVisible = true;
-          });
-          section.classList.toggle('hidden', !sectionHasVisible);
-          if (sectionHasVisible) groupHasVisible = true;
+  function filterList() {
+    const filter = removeAccents(searchInput.value.toLowerCase());
+
+    document.querySelectorAll('.group-divider').forEach(divider => {
+      const group = divider.dataset.group;
+      const sections = document.querySelectorAll(`section[data-group="${group}"]`);
+      let groupHasVisible = false;
+
+      sections.forEach(section => {
+        let sectionHasVisible = false;
+
+        section.querySelectorAll('li:not(.sub-divider-item)').forEach(li => {
+          const match = removeAccents(li.textContent.toLowerCase()).includes(filter);
+          li.classList.toggle('hide', !match);
+          if (match) sectionHasVisible = true;
         });
-        divider.classList.toggle('hidden', !groupHasVisible);
-      });
-    }
 
-    searchInput.addEventListener('input', filterList);
-  </script>
+        // Cache le sub-divider si aucun li visible après lui
+        section.querySelectorAll('.sub-divider-item').forEach(dividerItem => {
+          let hasVisibleAfter = false;
+          let next = dividerItem.nextElementSibling;
+          while (next) {
+            if (!next.classList.contains('sub-divider-item') && !next.classList.contains('hide')) {
+              hasVisibleAfter = true;
+              break;
+            }
+            next = next.nextElementSibling;
+          }
+          dividerItem.classList.toggle('hide', !hasVisibleAfter);
+        });
+
+        section.classList.toggle('hidden', !sectionHasVisible);
+        if (sectionHasVisible) groupHasVisible = true;
+      });
+
+      divider.classList.toggle('hidden', !groupHasVisible);
+    });
+  }
+
+  searchInput.addEventListener('input', filterList);
+</script>
 
 </body>
 </html>
